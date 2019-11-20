@@ -1,14 +1,43 @@
 import './App.css';
 import { Table } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import { Pagination, PaginationItem, PaginationLink, InputGroup, InputGroupText, InputGroupAddon, Input, Container, Row, Col} from 'reactstrap';
+import React, {useState} from 'react';
+import { Button, Pagination, PaginationItem, PaginationLink, InputGroup, InputGroupText, InputGroupAddon, Input, Container, Row, Col, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
+import { Link } from "react-router-dom";
+import Routes from "./Routes";
+
+
+
 
 const Example = (props) => {
+
+  const [collapsed, setCollapsed] = useState(true);
+
+  const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
 
     <div>
+
+<Navbar color="faded" light>
+        <NavbarBrand href="/" className="mr-auto">Car Dealer App</NavbarBrand>
+        <NavbarToggler onClick={toggleNavbar} className="mr-2" />
+        <Collapse isOpen={!collapsed} navbar>
+          <Nav navbar>
+            <NavItem>
+              <NavLink href="/login">Login</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/sign-up">Sign Up</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/sell">Sell your car!</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+        </Navbar>
+      <Routes />
+
 
     <Container id="Search">
 
