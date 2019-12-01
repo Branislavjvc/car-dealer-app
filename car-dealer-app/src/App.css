@@ -24,3 +24,12 @@
 #Search {
   margin-top: 20px;
 }
+
+#NavSell {
+  font-weight: bold;
+  color: #cce5ff;
+}
+
+.navbar-brand {
+  padding: 20px;
+}

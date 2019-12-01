@@ -1,0 +1,24 @@
+
+#signInHeader {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+#signInParagraph {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#profileHeader {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#welcomeAlert {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
