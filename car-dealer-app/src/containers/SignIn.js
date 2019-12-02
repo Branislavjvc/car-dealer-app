@@ -11,13 +11,13 @@ function hideProfileNavLink() {
 
 // Configure Firebase.
 const config = {
-  apiKey: "AIzaSyCplVPoS7HOtZXMwgxFMwprd955PRb4ru8",
-    authDomain: "car-dealer-app-536d8.firebaseapp.com",
-    databaseURL: "https://car-dealer-app-536d8.firebaseio.com",
-    projectId: "car-dealer-app-536d8",
-    storageBucket: "car-dealer-app-536d8.appspot.com",
-    messagingSenderId: "117271477496",
-    appId: "1:117271477496:web:b35732609796b93e810f0d"
+  apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 
 };
 firebase.initializeApp(config);
