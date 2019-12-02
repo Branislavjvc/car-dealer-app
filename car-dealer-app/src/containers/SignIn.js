@@ -22,6 +22,37 @@ const config = {
 };
 firebase.initializeApp(config);
 
+function writeNewPost(uid, username, picture, title, body) {
+  // A post entry.
+  var postData = {
+    author: username,
+    uid: uid,
+    body: body,
+    title: title,
+    starCount: 0,
+    authorPic: picture
+  };
+
+  // Get a key for a new Post.
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/Listings/' + newPostKey] = postData;
+  updates['/Listings/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
+
+
+var listingID = [];
+var carName = [];
+var carModel = [];
+var carPrice = [];
+var carMileage = [];
+var carFuelType = [];
+var carYear = [];
+
 var database = firebase.database();
 
 class SignInScreen extends React.Component {
@@ -92,7 +123,7 @@ class SignInScreen extends React.Component {
       </tbody>
     </Table>
 
-    <Button id="submitButton" color="primary">Submit Listing</Button> 
+    <Button id="submitButton" color="primary" onClick={writeNewPost}>Submit Listing</Button> 
         <Button id="signInButton" color="danger" onClick={() => firebase.auth().signOut()}>Sign-out</Button>
 
       </div>

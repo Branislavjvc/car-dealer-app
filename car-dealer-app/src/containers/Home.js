@@ -1,14 +1,33 @@
 import React, {useState} from "react";
 import "./Home.css";
-import { Pagination, PaginationItem, PaginationLink, Table, Jumbotron, Container} from 'reactstrap';
+import {Button, Pagination, PaginationItem, PaginationLink, Table, Jumbotron, Container} from 'reactstrap';
 
-var listingID = [];
-var carName = [];
-var carModel = [];
-var carPrice = [];
-var carMileage = [];
-var carFuelType = [];
-var carYear = [];
+var countTableRows = ('#myTable tr').length;
+
+function addListing() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell1.innerHTML = "NEW CELL1";
+  cell2.innerHTML = "NEW CELL2";
+  cell3.innerHTML = "NEW CELL3";
+  cell4.innerHTML = "NEW CELL4";
+  cell5.innerHTML = "NEW CELL5";
+  cell6.innerHTML = "NEW CELL6";
+}
+
+function rmListing() {
+  var table = document.getElementById("myTable");
+  if (countTableRows > 0) {
+    table.deleteRow(0);
+  }
+
+}
 
 export default function Home() {
   return (
@@ -22,7 +41,10 @@ export default function Home() {
         </Container>
       </Jumbotron>
 
-<Table responsive bordered hover>
+<Button color="primary" onClick={addListing}>Add Listing</Button>
+<Button onClick={rmListing}>Remove Listing</Button>
+
+<Table id="myTable" responsive bordered hover>
       <thead>
         <tr>
           <th>Listing ID</th>
