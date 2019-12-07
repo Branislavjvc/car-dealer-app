@@ -4,20 +4,9 @@ import "./SignIn.css";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
-function showProfileNavLink() {
-  document.getElementById("profileNavLink").innerHTML = "AAAAAAAAAAAAAAAAAAAAA";
-}
-
 // Configure Firebase.
 const config = {
-  apiKey: "AIzaSyCplVPoS7HOtZXMwgxFMwprd955PRb4ru8",
-  authDomain: "car-dealer-app-536d8.firebaseapp.com",
-  databaseURL: "https://car-dealer-app-536d8.firebaseio.com",
-  projectId: "car-dealer-app-536d8",
-  storageBucket: "car-dealer-app-536d8.appspot.com",
-  messagingSenderId: "117271477496",
-  appId: "1:117271477496:web:b35732609796b93e810f0d"
-
+  
 };
 firebase.initializeApp(config);
 
@@ -106,7 +95,7 @@ class SignInScreen extends React.Component {
     }
     return (
 
-      <div onLoad={showProfileNavLink}>
+      <div>
       <UncontrolledAlert id="welcomeAlert" color="success">Welcome {firebase.auth().currentUser.displayName} !</UncontrolledAlert>
       <h1 id="profileHeader">User Profile</h1>
 
