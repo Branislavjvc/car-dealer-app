@@ -9,7 +9,8 @@ export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/Sign-in"  exact component={SignIn} />
+      <Route path="/Profile"  exact component={SignIn} />
+      <Route path="/Terms & Conditions"  exact component={Home} />
       <Route component={NotFound} />
     </Switch>
   );

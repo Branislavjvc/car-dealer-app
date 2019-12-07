@@ -33,3 +33,11 @@
 .navbar-brand {
   padding: 20px;
 }
+
+#profileNavLink {
+  display: none;
+}
+
+#signInButtonNav {
+  display: none;
+}

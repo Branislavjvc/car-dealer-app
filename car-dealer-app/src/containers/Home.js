@@ -1,11 +1,64 @@
 import React, {useState} from "react";
 import "./Home.css";
 import {Button, Pagination, PaginationItem, PaginationLink, Table, Jumbotron, Container} from 'reactstrap';
+  
 
-var countTableRows = ('#myTable tr').length;
+/*
+Listing expiration 
+
+Test:
+
+<p id="x">Click "Try it". Wait 1 second, and see the magic happen.</p>
+
+<button onclick="setTimeout(myFunction, 1000);">Try it</button>
+
+<script>
+function myFunction() {
+   x.style.display = "none";
+}
+</script>
+
+
+*/
+
+var ids = ["0001", "0002", "0003"];
+var names = ["Bmw", "Fiat", "Tesla"];
+var models = ["320d", "Panda", "X"];
+var fuelTypes = ["Gasoline", "Diesel", "Electric"];
+var years = ["2010", "2012", "2018"];
+var mileages = ["50,000", "40,000", "5000"]; 
+var listingsTotal = 3;
+
+var sorted = 0;
+
+function inc() {
+sorted += 1;
+}
+
+function dec() {
+  sorted -= 1;
+}
+
+function sortTable() {
+
+ 
+  if (sorted == 1){
+    ids.sort();
+  document.getElementById("demo").innerHTML = ids;
+  dec();
+  }
+  
+  else
+  {
+    ids.sort(function(a, b){return b-a});
+    document.getElementById("demo").innerHTML = ids;
+    inc();
+  }
+
+}
 
 function addListing() {
-  var table = document.getElementById("myTable");
+  var table = document.getElementById("tableRow");
   var row = table.insertRow(0);
   var cell1 = row.insertCell(0);
   var cell2 = row.insertCell(1);
@@ -13,21 +66,23 @@ function addListing() {
   var cell4 = row.insertCell(3);
   var cell5 = row.insertCell(4);
   var cell6 = row.insertCell(5);
-  cell1.innerHTML = "NEW CELL1";
-  cell2.innerHTML = "NEW CELL2";
-  cell3.innerHTML = "NEW CELL3";
-  cell4.innerHTML = "NEW CELL4";
-  cell5.innerHTML = "NEW CELL5";
-  cell6.innerHTML = "NEW CELL6";
+  cell1.innerHTML = "Listing ID";
+  cell2.innerHTML = "Name";
+  cell3.innerHTML = "Model";
+  cell4.innerHTML = "Fuel Type";
+  cell5.innerHTML = "Year";
+  cell6.innerHTML = "Mileage";
+  listingsTotal += 1;
+  document.getElementById('listingCounter').innerHTML = 'Active Listings: ' + listingsTotal;
 }
 
 function rmListing() {
-  var table = document.getElementById("myTable");
-  if (countTableRows > 0) {
-    table.deleteRow(0);
-  }
-
+  var table = document.getElementById("tableRow");
+  table.deleteRow(0);
+  listingsTotal -= 1;
+  document.getElementById('listingCounter').innerHTML = 'Active Listings: ' + listingsTotal;
 }
+
 
 export default function Home() {
   return (
@@ -36,13 +91,16 @@ export default function Home() {
 
         <Jumbotron fluid>
         <Container fluid>
-          <h1 className="display-3">Car Dealer App</h1>
-          <p className="lead">A car selling platform with React </p>
+          <h1 className="display-3 fade-in">Car Dealer App</h1>
+          <p className="lead fade-in">A car selling platform with React </p>
+          <p id="listingCounter" className="fade-in">Active Listings: {listingsTotal}</p>
         </Container>
       </Jumbotron>
 
 <Button color="primary" onClick={addListing}>Add Listing</Button>
 <Button onClick={rmListing}>Remove Listing</Button>
+<Button onClick={sortTable}>Sort</Button>
+<p id="demo"></p>
 
 <Table id="myTable" responsive bordered hover>
       <thead>
@@ -55,30 +113,30 @@ export default function Home() {
           <th>Mileage</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="tableRow">
         <tr>
-          <td>0001</td>
-          <td>Bmw</td>
-          <td>320d</td>
-          <td>Diesel</td>
-          <td>2010</td>
-          <td>50,000</td>
+          <td>{ids[0]}</td>
+          <td>{names[0]}</td>
+          <td>{models[0]}</td>
+          <td>{fuelTypes[0]}</td>
+          <td>{years[0]}</td>
+          <td>{mileages[0]}</td>
         </tr>
         <tr>
-          <td>0002</td>
-          <td>Fiat</td>
-          <td>Panda</td>
-          <td>Petrol</td>
-          <td>2012</td>
-          <td>40,000</td>
+        <td>{ids[1]}</td>
+          <td>{names[1]}</td>
+          <td>{models[1]}</td>
+          <td>{fuelTypes[1]}</td>
+          <td>{years[1]}</td>
+          <td>{mileages[1]}</td>
         </tr>
         <tr>
-          <td>0003</td>
-          <td>Tesla</td>
-          <td>X</td>
-          <td>Electric</td>
-          <td>2015</td>
-          <td>5,000</td>
+          <td>{ids[2]}</td>
+          <td>{names[2]}</td>
+          <td>{models[2]}</td>
+          <td>{fuelTypes[2]}</td>
+          <td>{years[2]}</td>
+          <td>{mileages[2]}</td>
         </tr>
       </tbody>
     </Table>
