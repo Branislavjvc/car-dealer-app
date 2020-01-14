@@ -5,7 +5,6 @@ import { Button, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 import Routes from "./Routes";
 
 
-
 const Example = (props) => {
 
   

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { UncontrolledAlert, Button, Table, Card, CardBody, Form, FormGroup, FormText, Label, Col, Input, Row} from "reactstrap";
+import { UncontrolledAlert, Button, ButtonGroup, Table, Card, CardBody, Form, FormGroup, FormText, Label, Col, Input, Row, UncontrolledDropdown, CustomInput, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 import "./SignIn.css";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
 // Configure Firebase.
 const config = {
-  
+  //Private 
 };
 firebase.initializeApp(config);
 
@@ -81,6 +81,16 @@ class SignInScreen extends React.Component {
     document.getElementById("signInNavLink").style.display = "none";
     document.getElementById("signInButtonNav").style.display ="block";
     document.getElementById("signInButtonNav").onclick = () => firebase.auth().signOut();
+    document.getElementById("dataTable").style.display = "none";
+
+    function validateForm() {
+      var x = document.forms["myForm"]["fname"].value;
+      if (x == "") {
+        alert("Name must be filled out");
+        return false;
+      }
+    } 
+
   }
 
   render() {
@@ -123,102 +133,92 @@ class SignInScreen extends React.Component {
       <Card>
         <CardBody>
         <Form>
-      <Row form>
-        <Col md={6}>
-          <FormGroup>
-          <Label for="exampleSelect">Car Model</Label>
-        <Input type="select" name="select" id="exampleSelect">
-          <option>Model 3</option>
-          <option>Model S</option>
-          <option>Model X</option>
-          <option>Model Y</option>
-          <option>Roadster</option>
-          <option disabled>Cybertruck - Coming Soon!</option>
-        </Input>
-          </FormGroup>
-          </Col>
-        <Col md={6}>
-      <FormGroup>
-        <Label for="exampleAddress">Address</Label>
-        <Input type="text" name="address" id="exampleAddress" placeholder="1234 Main St"/>
+      
+      <Row>
+        <Col sm={2}>
+        <FormGroup>
+        <Label for="carMakeInput">Car Make</Label>
+        <Input type="text" name="make" id="carMakeInput" placeholder="Volkswagen"/>
       </FormGroup>
       </Col>
-      </Row>
-      <Row form>
-        <Col md={6}>
+         
+      <Col sm={2}>
+        <FormGroup>
+        <Label for="carModelInput">Car Model</Label>
+        <Input type="text" name="model" id="carModelInput" placeholder="Golf"/>
+      </FormGroup>
+      </Col>
+          
+      <Col sm={2}>
+      <FormGroup>
+        <Label for="adressInput">Address</Label>
+        <Input type="text" name="adress" id="adressInput" placeholder="1234 Main St"/>
+      </FormGroup>
+      </Col>
+
+      <Col sm={2}>
           <FormGroup>
             <Label for="exampleCity">City</Label>
-            <Input type="text" name="city" id="exampleCity"/>
+            <Input type="text" name="city" id="exampleCity" placeholder="New York"/>
           </FormGroup>
-        </Col>
-        <Col md={4}>
+</Col>
+
+          <Col sm={2}>
           <FormGroup>
             <Label for="exampleState">State</Label>
-            <Input type="text" name="state" id="exampleState"/>
+            <Input type="text" name="state" id="exampleState" placeholder="New York"/>
           </FormGroup>
-        </Col>
-        <Col md={2}>
-          <FormGroup>
-            <Label for="exampleZip">Zip</Label>
-            <Input type="text" name="zip" id="exampleZip"/>
-          </FormGroup>  
-        </Col>
-      </Row>
-      <FormGroup row>
-        <Label for="exampleText" sm={2}>Text Area</Label>
-        <Col sm={10}>
-          <Input type="textarea" name="text" id="exampleText" />
-        </Col>
+</Col>
+
+<Col sm={2}>
+      <UncontrolledDropdown>
+      <DropdownToggle caret color="primary">
+        Fuel Type
+      </DropdownToggle>
+      <DropdownMenu>
+        <DropdownItem>Petrol</DropdownItem>
+        <DropdownItem>Diesel</DropdownItem>
+        <DropdownItem>Electric</DropdownItem>
+      </DropdownMenu>
+    </UncontrolledDropdown>
+</Col>
+
+    <Col sm={2}>
+      <FormGroup>
+        <Label for="mileage">Mileage</Label>
+            <Input type="text" name="mileage" id="mileage" placeholder="10,000"/>
       </FormGroup>
+</Col>
+
+      <Col sm={10}>
       <FormGroup row>
-        <Label for="exampleFile" sm={2}>File</Label>
-        <Col sm={10}>
+        <Label for="exampleText">Description</Label>
+          <Input type="textarea" name="text" id="exampleText" />
+          </FormGroup>
+</Col>
+</Row>
+      <FormGroup row>
+        <Label for="exampleFile">Photos</Label>
+
           <Input type="file" name="file" id="exampleFile" />
           <FormText color="muted">
-            Adding an image is necessary.
-            .
+            Adding atleast one image is necessary.
           </FormText>
-        </Col>
-      </FormGroup>
-      <FormGroup tag="fieldset" row>
-        <legend className="col-form-label col-sm-2">Radio Buttons</legend>
-        <Col sm={10}>
+
           <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio2" />{' '}
-              Option one is this and that—be sure to include why it's great
-            </Label>
+        <Label for="checkbox2">T&C</Label>
           </FormGroup>
-          <FormGroup check>
-            <Label check>
-              <Input type="radio" name="radio2" />{' '}
-              Option two can be something else and selecting it will deselect option one
-            </Label>
-          </FormGroup>
-          <FormGroup check disabled>
-            <Label check>
-              <Input type="radio" name="radio2" disabled />{' '}
-              Option three is disabled
-            </Label>
-          </FormGroup>
-        </Col>
-      </FormGroup>
-      <FormGroup row>
-        <Label for="checkbox2" sm={2}>T&C</Label>
-        <Col sm={{ size: 10 }}>
           <FormGroup check>
             <Label check>
               <Input type="checkbox" id="checkbox2" />{' '}
-              I agree with the <a href="/Terms & Conditions">T&C</a>
+              I agree with the <a href="/">T&C</a>
             </Label>
           </FormGroup>
-        </Col>
+
       </FormGroup>
-      <FormGroup check row>
-        <Col sm={{ size: 10, offset: 2 }}>
-          <Button>Submit</Button>
-        </Col>
-      </FormGroup>
+      <Form action="http://google.com">
+    <Input type="submit" value="Go to Google" />
+</Form>
     </Form>
         </CardBody>
       </Card>
