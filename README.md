@@ -15,7 +15,7 @@ http://tabulator.info
 	
 	Homepage
 	
-	<img src="homepage.png">
+	![Alt text](/relative/path/to/homepage.jpg?raw=true "Homepage")
 	
 	Responsive
 	
