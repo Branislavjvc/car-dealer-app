@@ -15,19 +15,19 @@ http://tabulator.info
 	
 	Homepage
 	
-![Homepage](homepage.png)
+![Homepage](homepage.png "Homepage")
 	
 	Responsive
 	
-![Responsive](responsive.png)
+![Responsive](responsive.png "Responsive")
 	
 	Performance
 	
-![Performance](performance.png)
+![Performance](performance.png "Performance")
 	
 	404 Not Found Page
 	
-![404 Not Found](404page.png)
+![404 Not Found](404page.png "Not Found")
 	
 
   Challenges:
