@@ -15,7 +15,7 @@ http://tabulator.info
 	
 	Homepage
 	
-![[Homepage](homepage.png "Homepage")]
+![Homepage](homepage.png "Homepage")
 	
 	Responsive
 	
