@@ -6,7 +6,7 @@ import firebase from 'firebase';
 
 // Configure Firebase.
 const config = {
-  //Private 
+//copy firebase config here
 };
 firebase.initializeApp(config);
 
