@@ -15,19 +15,19 @@ http://tabulator.info
 	
 	Homepage
 	
-	![Homepage](https://github.com/Branislavjvc/car-dealer-app/blob/master/homepage.png)
+	![Homepage](homepage.png)
 	
 	Responsive
 	
-	![Responsive](https://github.com/Branislavjvc/car-dealer-app/blob/master/responsive.png)
+	![Responsive](responsive.png)
 	
 	Performance
 	
-	![Performance](https://github.com/Branislavjvc/car-dealer-app/blob/master/performance.png)
+	![Performance](performance.png)
 	
 	404 Not Found Page
 	
-	![Not Found](https://github.com/Branislavjvc/car-dealer-app/blob/master/404page.png)
+	![404 Not Found](404page.png)
 	
 
   Challenges:
