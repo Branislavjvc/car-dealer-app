@@ -19,15 +19,15 @@ http://tabulator.info
 	
 	Responsive
 	
-	<img src="responsive.png">
+	![Alt text](/relative/path/to/responsive.jpg?raw=true "Responsive")
 	
 	Performance
 	
-	<img src="performance.png">
+	![Alt text](/relative/path/to/performance.jpg?raw=true "Performance")
 	
 	404 Not Found Page
 	
-	<img src="404page.png">
+	![Alt text](/relative/path/to/404page.jpg?raw=true "Not Found")
 	
 
   Challenges:
